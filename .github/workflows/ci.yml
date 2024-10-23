@@ -1,0 +1,22 @@
+name: Build/Test
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  ci:
+    name: 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+  
+      - name: Build with Maven and Run Pitest
+        run: mvn org.pitest:pitest-maven:mutationCoverage
