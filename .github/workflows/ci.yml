@@ -25,7 +25,7 @@ jobs:
         run: mvn org.pitest:pitest-maven:mutationCoverage
 
       - name: Upload Pitest Report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4 
         with:
           name: pitest-report
           path: target/pit-reports 
